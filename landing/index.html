@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a1413" />
+    <meta name="description" content="veilChat is coming soon." />
+    <title>veilChat — Coming Soon</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #091210;
+        --panel: rgba(14, 28, 26, 0.72);
+        --line: rgba(244, 184, 94, 0.16);
+        --ink: #ede6d6;
+        --ink-soft: #a9b7ae;
+        --honey: #f4b85e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+      }
+
+      body {
+        min-height: 100vh;
+        overflow: hidden;
+        color: var(--ink);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      .page {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 1.25rem;
+        background:
+          radial-gradient(circle at 50% 20%, rgba(244, 184, 94, 0.12), transparent 30%),
+          radial-gradient(circle at 50% 75%, rgba(95, 182, 166, 0.1), transparent 34%),
+          var(--bg);
+      }
+
+      .frame {
+        width: min(100%, 74rem);
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0 0.25rem;
+      }
+
+      .brand {
+        font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+        font-weight: 650;
+        letter-spacing: -0.04em;
+      }
+
+      .status {
+        color: var(--ink-soft);
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .video-shell {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 1.25rem;
+        background: rgba(0, 0, 0, 0.18);
+        box-shadow:
+          0 1.5rem 4rem rgba(0, 0, 0, 0.38),
+          inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      }
+
+      .video-shell::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%),
+          radial-gradient(circle at 50% 50%, transparent 44%, rgba(0, 0, 0, 0.45) 100%);
+        z-index: 1;
+      }
+
+      video {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: calc(100vh - 9rem);
+        object-fit: contain;
+        background: #000;
+      }
+
+      .caption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.25rem 0.25rem 0;
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .caption a {
+        color: var(--honey);
+        text-decoration: none;
+      }
+
+      .caption a:hover {
+        text-decoration: underline;
+      }
+
+      .fallback {
+        padding: 0.7rem 0.25rem 0;
+        color: var(--ink-soft);
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+
+      .fallback strong {
+        color: var(--ink);
+        font-weight: 650;
+      }
+
+      @media (max-width: 42rem) {
+        body {
+          overflow: auto;
+        }
+
+        .page {
+          min-height: 100vh;
+          align-items: start;
+          padding: 0.75rem;
+        }
+
+        .header,
+        .caption {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .status {
+          letter-spacing: 0.12em;
+        }
+
+        video {
+          max-height: none;
+        }
+
+        .fallback {
+          padding-top: 0.5rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page" aria-label="veilChat coming soon video">
+      <section class="frame">
+        <div class="header">
+          <div class="brand">veilChat</div>
+          <div class="status">Coming soon</div>
+        </div>
+
+        <div class="video-shell">
+          <video
+            poster="assets/masquerade-lounge-illustrated.png"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+            preload="metadata"
+            aria-label="veilChat coming soon video"
+          >
+            <source src="assets/veilChat_coming_soon.mp4" type="video/mp4" />
+            Sorry, your browser cannot play this video.
+          </video>
+        </div>
+
+        <div class="caption">
+          <span>Stay tuned.</span>
+        </div>
+
+        <p class="fallback">
+          <strong>If it does not start automatically, tap play.</strong>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
